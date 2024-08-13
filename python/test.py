@@ -3,12 +3,11 @@ import pymysql
 # Function to create a connection to the MySQL database
 def create_connection():
     return pymysql.connect(
-        host="172.17.0.2",  # Your MySQL server host
+        host="mysqldb",  # Your MySQL server host
         user="root",       # Your MySQL username
         password="root",  # Your MySQL password
         database="userinfo"    # Your MySQL database name
     )
-
 
 # Function to create a table to store usernames if it doesn't exist
 def create_table(connection):
@@ -21,7 +20,6 @@ def create_table(connection):
     """)
     connection.commit()
     cursor.close()
-
 
 # Function to insert a name into the database
 def insert_name(connection, name):
