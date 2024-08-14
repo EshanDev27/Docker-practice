@@ -1,0 +1,11 @@
+# Use OpenJDK 11 base image
+FROM openjdk:11
+
+# Add the JAR file to the container
+COPY target/*.jar /spring.jar
+
+# Expose port 8080
+EXPOSE 8080
+
+# Run the JAR file
+ENTRYPOINT ["java", "-jar", "/spring.jar"]
